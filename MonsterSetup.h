@@ -10,7 +10,7 @@ class Monster
     void setup();
     void saveStats();
     void loadStats();
-    void makeMonsterDefault();
+    void makeDefault();
 
     //base
     string Name;

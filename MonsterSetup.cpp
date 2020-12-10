@@ -106,11 +106,12 @@ void Monster::loadStats()
   file2.close();
 }
 
-void Monster::makeMonsterDefault()
+void Monster::makeDefault()
 {
+  cout << "Please enter the id of the monster you wish to use as the default: ";
+  cin >> id2;
   path3 = "MonsterData/DefaultMonsters/" + id2 + ".txt";
   file3.open(path3);
   file3 >> Name;
   file3.close();
-  path1 = "MonsterData/";
-} 
+}

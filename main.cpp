@@ -352,13 +352,68 @@ void nextInput()
       case 49:  M49.setup(); M49.saveStats();  break;
       case 50:  M50.setup(); M50.saveStats();  break;
     }
-
-}
+  }
+  else if (secondIn == "Default_Monster")
+  {
+    cout << "Which monster do you want to reset: ";
+    cin >> monster1;
+    switch(monster1) {
+      case 1:  M1.makeDefault(); M1.saveStats();  break;
+      case 2:  M2.makeDefault(); M2.saveStats();  break;
+      case 3:  M3.makeDefault(); M3.saveStats();  break;
+      case 4:  M4.setup(); M4.saveStats();  break;
+      case 5:  M5.setup(); M5.saveStats();  break;
+      case 6:  M6.setup(); M6.saveStats();  break;
+      case 7:  M7.setup(); M7.saveStats();  break;
+      case 8:  M8.setup(); M8.saveStats();  break;
+      case 9:  M9.setup(); M9.saveStats();  break;
+      case 10:  M10.setup(); M10.saveStats();  break;
+      case 11:  M11.setup(); M11.saveStats();  break;
+      case 12:  M12.setup(); M12.saveStats();  break;
+      case 13:  M13.setup(); M13.saveStats();  break;
+      case 14:  M14.setup(); M14.saveStats();  break;
+      case 15:  M15.setup(); M15.saveStats();  break;
+      case 16:  M16.setup(); M16.saveStats();  break;
+      case 17:  M17.setup(); M17.saveStats();  break;
+      case 18:  M18.setup(); M18.saveStats();  break;
+      case 19:  M19.setup(); M19.saveStats();  break;
+      case 20:  M20.setup(); M20.saveStats();  break;
+      case 21:  M21.setup(); M21.saveStats();  break;
+      case 22:  M22.setup(); M22.saveStats();  break;
+      case 23:  M23.setup(); M23.saveStats();  break;
+      case 24:  M24.setup(); M24.saveStats();  break;
+      case 25:  M25.setup(); M25.saveStats();  break;
+      case 26:  M26.setup(); M26.saveStats();  break;
+      case 27:  M27.setup(); M27.saveStats();  break;
+      case 28:  M28.setup(); M28.saveStats();  break;
+      case 29:  M29.setup(); M29.saveStats();  break;
+      case 30:  M30.setup(); M30.saveStats();  break;
+      case 31:  M31.setup(); M31.saveStats();  break;
+      case 32:  M32.setup(); M32.saveStats();  break;
+      case 33:  M33.setup(); M33.saveStats();  break;
+      case 34:  M34.setup(); M34.saveStats();  break;
+      case 35:  M35.setup(); M35.saveStats();  break;
+      case 36:  M36.setup(); M36.saveStats();  break;
+      case 37:  M37.setup(); M37.saveStats();  break;
+      case 38:  M38.setup(); M38.saveStats();  break;
+      case 39:  M39.setup(); M39.saveStats();  break;
+      case 40:  M40.setup(); M40.saveStats();  break;
+      case 41:  M41.setup(); M41.saveStats();  break;
+      case 42:  M42.setup(); M42.saveStats();  break;
+      case 43:  M43.setup(); M43.saveStats();  break;
+      case 44:  M44.setup(); M44.saveStats();  break;
+      case 45:  M45.setup(); M45.saveStats();  break;
+      case 46:  M46.setup(); M46.saveStats();  break;
+      case 47:  M47.setup(); M47.saveStats();  break;
+      case 48:  M48.setup(); M48.saveStats();  break;
+      case 49:  M49.setup(); M49.saveStats();  break;
+      case 50:  M50.setup(); M50.saveStats();  break;
+    }
+  }
   else
   {
-    cout << "Invalid Response, Please Try Again." << endl;
+    cout << "Invalid Response, Please Try Again." << endl;  }
   }
-}
 
 void combat()
 {
@@ -440,7 +495,11 @@ void combat()
 
     if (attackDamage < 1)
     {
-      cout << "No damage taken." << endl;
+      cout << input2 << " took no damage." << endl;
+    }
+    else if (attackDamage > 0)
+    {
+      cout << input << " attacked " << input2 << " for " << attackDamage << "damage";
     }
   }
   

@@ -112,5 +112,5 @@ void Monster::makeMonsterDefault()
   file3.open(path3);
   file3 >> Name;
   file3.close();
-  path1 = "MO"
+  path1 = "MonsterData/";
 } 

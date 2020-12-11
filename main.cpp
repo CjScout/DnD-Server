@@ -14,6 +14,7 @@ string input2;
 string input3;
 string input4;
 
+int activeMCount;
 int attackDamage;
 int monster1;
 
@@ -96,13 +97,13 @@ Monster M48;
 Monster M49;
 Monster M50;
 
-void initialSetup();
+void initialsetup();
 void save();
 void load();
 void startInput();
 void nextInput();
 void combat();
-
+void changeMonster();
 
 
 int main() 
@@ -213,7 +214,7 @@ void startInput (){
     }
     else if (fileRead == "truee")
     {
-      cout << "Setup already complete. Loading data." << endl;
+      cout << "setup already complete. Loading data." << endl;
       load();
       if (P1.inUse == true)
       {
@@ -265,7 +266,7 @@ void startInput (){
   else if (input == "Reset_Data")
   {
     fileRead = false;
-    initialSetup();
+    initialsetup();
     save();
   }
 
@@ -298,71 +299,18 @@ void nextInput()
   //really?
   else if (secondIn == "Reset_Monster") 
   {
-    cout << "Which monster(1-50) do you want to reset: ";
-    cin >> monster1;
-    switch(monster1) {
-      case 1:  M1.setup(); M1.saveStats();  break;
-      case 2:  M2.setup(); M2.saveStats();  break;
-      case 3:  M3.setup(); M3.saveStats();  break;
-      case 4:  M4.setup(); M4.saveStats();  break;
-      case 5:  M5.setup(); M5.saveStats();  break;
-      case 6:  M6.setup(); M6.saveStats();  break;
-      case 7:  M7.setup(); M7.saveStats();  break;
-      case 8:  M8.setup(); M8.saveStats();  break;
-      case 9:  M9.setup(); M9.saveStats();  break;
-      case 10:  M10.setup(); M10.saveStats();  break;
-      case 11:  M11.setup(); M11.saveStats();  break;
-      case 12:  M12.setup(); M12.saveStats();  break;
-      case 13:  M13.setup(); M13.saveStats();  break;
-      case 14:  M14.setup(); M14.saveStats();  break;
-      case 15:  M15.setup(); M15.saveStats();  break;
-      case 16:  M16.setup(); M16.saveStats();  break;
-      case 17:  M17.setup(); M17.saveStats();  break;
-      case 18:  M18.setup(); M18.saveStats();  break;
-      case 19:  M19.setup(); M19.saveStats();  break;
-      case 20:  M20.setup(); M20.saveStats();  break;
-      case 21:  M21.setup(); M21.saveStats();  break;
-      case 22:  M22.setup(); M22.saveStats();  break;
-      case 23:  M23.setup(); M23.saveStats();  break;
-      case 24:  M24.setup(); M24.saveStats();  break;
-      case 25:  M25.setup(); M25.saveStats();  break;
-      case 26:  M26.setup(); M26.saveStats();  break;
-      case 27:  M27.setup(); M27.saveStats();  break;
-      case 28:  M28.setup(); M28.saveStats();  break;
-      case 29:  M29.setup(); M29.saveStats();  break;
-      case 30:  M30.setup(); M30.saveStats();  break;
-      case 31:  M31.setup(); M31.saveStats();  break;
-      case 32:  M32.setup(); M32.saveStats();  break;
-      case 33:  M33.setup(); M33.saveStats();  break;
-      case 34:  M34.setup(); M34.saveStats();  break;
-      case 35:  M35.setup(); M35.saveStats();  break;
-      case 36:  M36.setup(); M36.saveStats();  break;
-      case 37:  M37.setup(); M37.saveStats();  break;
-      case 38:  M38.setup(); M38.saveStats();  break;
-      case 39:  M39.setup(); M39.saveStats();  break;
-      case 40:  M40.setup(); M40.saveStats();  break;
-      case 41:  M41.setup(); M41.saveStats();  break;
-      case 42:  M42.setup(); M42.saveStats();  break;
-      case 43:  M43.setup(); M43.saveStats();  break;
-      case 44:  M44.setup(); M44.saveStats();  break;
-      case 45:  M45.setup(); M45.saveStats();  break;
-      case 46:  M46.setup(); M46.saveStats();  break;
-      case 47:  M47.setup(); M47.saveStats();  break;
-      case 48:  M48.setup(); M48.saveStats();  break;
-      case 49:  M49.setup(); M49.saveStats();  break;
-      case 50:  M50.setup(); M50.saveStats();  break;
-    }
+
   }
   else if (secondIn == "Default_Monster")
   {
-    cout << "Which monster do you want to reset: ";
+    cout << "Which monster do you want to make default: ";
     cin >> monster1;
     switch(monster1) {
       case 1:  M1.makeDefault(); M1.saveStats();  break;
       case 2:  M2.makeDefault(); M2.saveStats();  break;
       case 3:  M3.makeDefault(); M3.saveStats();  break;
-      case 4:  M4.setup(); M4.saveStats();  break;
-      case 5:  M5.setup(); M5.saveStats();  break;
+      case 4:  M4.makeDefault(); M4.saveStats();  break;
+      case 5:  M5.makeDefault(); M5.saveStats();  break;
       case 6:  M6.setup(); M6.saveStats();  break;
       case 7:  M7.setup(); M7.saveStats();  break;
       case 8:  M8.setup(); M8.saveStats();  break;
@@ -415,94 +363,208 @@ void nextInput()
     cout << "Invalid Response, Please Try Again." << endl;  }
   }
 
+
+void changeMonster()
+{
+  cout << "Which monster(1-50) do you want to reset: ";
+  cin >> monster1;
+  switch(monster1) 
+  {
+    case 1:  M1.setup(); M1.saveStats();  break;
+    case 2:  M2.setup(); M2.saveStats();  break;
+    case 3:  M3.setup(); M3.saveStats();  break;
+    case 4:  M4.setup(); M4.saveStats();  break;
+    case 5:  M5.setup(); M5.saveStats();  break;
+    case 6:  M6.setup(); M6.saveStats();  break;
+    case 7:  M7.setup(); M7.saveStats();  break;
+    case 8:  M8.setup(); M8.saveStats();  break;
+    case 9:  M9.setup(); M9.saveStats();  break;
+    case 10:  M10.setup(); M10.saveStats();  break;
+    case 11:  M11.setup(); M11.saveStats();  break;
+    case 12:  M12.setup(); M12.saveStats();  break;
+    case 13:  M13.setup(); M13.saveStats();  break;
+    case 14:  M14.setup(); M14.saveStats();  break;
+    case 15:  M15.setup(); M15.saveStats();  break;
+    case 16:  M16.setup(); M16.saveStats();  break;
+    case 17:  M17.setup(); M17.saveStats();  break;
+    case 18:  M18.setup(); M18.saveStats();  break;
+    case 19:  M19.setup(); M19.saveStats();  break;
+    case 20:  M20.setup(); M20.saveStats();  break;
+    case 21:  M21.setup(); M21.saveStats();  break;
+    case 22:  M22.setup(); M22.saveStats();  break;
+    case 23:  M23.setup(); M23.saveStats();  break;
+    case 24:  M24.setup(); M24.saveStats();  break;
+    case 25:  M25.setup(); M25.saveStats();  break;
+    case 26:  M26.setup(); M26.saveStats();  break;
+    case 27:  M27.setup(); M27.saveStats();  break;
+    case 28:  M28.setup(); M28.saveStats();  break;
+    case 29:  M29.setup(); M29.saveStats();  break;
+    case 30:  M30.setup(); M30.saveStats();  break;
+    case 31:  M31.setup(); M31.saveStats();  break;
+    case 32:  M32.setup(); M32.saveStats();  break;
+    case 33:  M33.setup(); M33.saveStats();  break;
+    case 34:  M34.setup(); M34.saveStats();  break;
+    case 35:  M35.setup(); M35.saveStats();  break;
+    case 36:  M36.setup(); M36.saveStats();  break;
+    case 37:  M37.setup(); M37.saveStats();  break;
+    case 38:  M38.setup(); M38.saveStats();  break;
+    case 39:  M39.setup(); M39.saveStats();  break;
+    case 40:  M40.setup(); M40.saveStats();  break;
+    case 41:  M41.setup(); M41.saveStats();  break;
+    case 42:  M42.setup(); M42.saveStats();  break;
+    case 43:  M43.setup(); M43.saveStats();  break;
+    case 44:  M44.setup(); M44.saveStats();  break;
+    case 45:  M45.setup(); M45.saveStats();  break;
+    case 46:  M46.setup(); M46.saveStats();  break;
+    case 47:  M47.setup(); M47.saveStats();  break;
+    case 48:  M48.setup(); M48.saveStats();  break;
+    case 49:  M49.setup(); M49.saveStats();  break;
+    case 50:  M50.setup(); M50.saveStats();  break;
+  }
+}
+
+void activeMonsters(int count)
+{
+  switch(count)
+  {
+    case 50:  	M50.inUse = true; activeMCount++;
+    case 49:  	M49.inUse = true; activeMCount++;
+    case 48:  	M48.inUse = true; activeMCount++;
+    case 47:  	M47.inUse = true; activeMCount++;
+    case 46:  	M46.inUse = true; activeMCount++;
+    case 45:  	M45.inUse = true; activeMCount++;
+    case 44:    M44.inUse = true; activeMCount++;
+    case 43:    M43.inUse = true; activeMCount++;
+    case 42:    M42.inUse = true; activeMCount++;
+    case 41:    M41.inUse = true; activeMCount++;
+    case 40:  	M40.inUse = true; activeMCount++;
+    case 39:  	M39.inUse = true; activeMCount++;
+    case 38:  	M38.inUse = true; activeMCount++;
+    case 37:  	M37.inUse = true; activeMCount++;
+    case 36:  	M36.inUse = true; activeMCount++;
+    case 35:  	M35.inUse = true; activeMCount++;
+    case 34:    M34.inUse = true; activeMCount++;
+    case 33:    M33.inUse = true; activeMCount++;
+    case 32:    M32.inUse = true; activeMCount++;
+    case 31:    M31.inUse = true; activeMCount++;
+    case 30:  	M30.inUse = true; activeMCount++;
+    case 29:  	M29.inUse = true; activeMCount++;
+    case 28:  	M28.inUse = true; activeMCount++;
+    case 27:  	M27.inUse = true; activeMCount++;
+    case 26:  	M26.inUse = true; activeMCount++;
+    case 25:  	M25.inUse = true; activeMCount++;
+    case 24:    M24.inUse = true; activeMCount++;
+    case 23:    M23.inUse = true; activeMCount++;
+    case 22:    M22.inUse = true; activeMCount++;
+    case 21:    M21.inUse = true; activeMCount++;
+    case 20:  	M20.inUse = true; activeMCount++;
+    case 19:  	M19.inUse = true; activeMCount++;
+    case 18:  	M18.inUse = true; activeMCount++;
+    case 17:  	M17.inUse = true; activeMCount++;
+    case 16:  	M16.inUse = true; activeMCount++;
+    case 15:  	M15.inUse = true; activeMCount++;
+    case 14:    M14.inUse = true; activeMCount++;
+    case 13:    M13.inUse = true; activeMCount++;
+    case 12:    M12.inUse = true; activeMCount++;
+    case 11:    M11.inUse = true; activeMCount++;
+    case 10:  	M10.inUse = true; activeMCount++;
+    case 9:  	  M9.inUse = true; activeMCount++;
+    case 8:  	  M8.inUse = true; activeMCount++;
+    case 7:  	  M7.inUse = true; activeMCount++;
+    case 6:  	  M6.inUse = true; activeMCount++;
+    case 5:  	  M5.inUse = true; activeMCount++;
+    case 4:     M4.inUse = true; activeMCount++;
+    case 3:     M3.inUse = true; activeMCount++;
+    case 2:     M2.inUse = true; activeMCount++;
+    case 1:     M1.inUse = true; activeMCount++;
+  }
+}
+
 void combat()
 {
-  cout << "Commencing Combat";
+  cout << "Commencing Combat" << endl;
 
-  cout << "How many monsters?";
+  cout << "How many monsters? ";
   cin >> input;
 
-  switch(stoi(input))
+  activeMonsters(stoi(input));
+
+  activeMCount = 0;
+
+  inCombat = true;
+  while (inCombat == true)
   {
-    case 50:  	M50.inUse = true;
-    case 49:  	M49.inUse = true;
-    case 48:  	M48.inUse = true;
-    case 47:  	M47.inUse = true;
-    case 46:  	M46.inUse = true;
-    case 45:  	M45.inUse = true;
-    case 44:    M44.inUse = true;
-    case 43:    M43.inUse = true;
-    case 42:    M42.inUse = true;
-    case 41:    M41.inUse = true;
-    case 40:  	M40.inUse = true;
-    case 39:  	M39.inUse = true;
-    case 38:  	M38.inUse = true;
-    case 37:  	M37.inUse = true;
-    case 36:  	M36.inUse = true;
-    case 35:  	M35.inUse = true;
-    case 34:    M34.inUse = true;
-    case 33:    M33.inUse = true;
-    case 32:    M32.inUse = true;
-    case 31:    M31.inUse = true;
-    case 30:  	M30.inUse = true;
-    case 29:  	M29.inUse = true;
-    case 28:  	M28.inUse = true;
-    case 27:  	M27.inUse = true;
-    case 26:  	M26.inUse = true;
-    case 25:  	M25.inUse = true;
-    case 24:    M24.inUse = true;
-    case 23:    M23.inUse = true;
-    case 22:    M22.inUse = true;
-    case 21:    M21.inUse = true;
-    case 20:  	M20.inUse = true;
-    case 19:  	M19.inUse = true;
-    case 18:  	M18.inUse = true;
-    case 17:  	M17.inUse = true;
-    case 16:  	M16.inUse = true;
-    case 15:  	M15.inUse = true;
-    case 14:    M14.inUse = true;
-    case 13:    M13.inUse = true;
-    case 12:    M12.inUse = true;
-    case 11:    M11.inUse = true;
-    case 10:  	M10.inUse = true;
-    case 9:  	  M9.inUse = true;
-    case 8:  	  M8.inUse = true;
-    case 7:  	  M7.inUse = true;
-    case 6:  	  M6.inUse = true;
-    case 5:  	  M5.inUse = true;
-    case 4:     M4.inUse = true;
-    case 3:     M3.inUse = true;
-    case 2:     M2.inUse = true;
-    case 1:     M1.inUse = true;
-  }
-  
-  cout << "Enter the player/monster who's turn it is: ";
-  cin >> input;
+    cout << "Enter the player/monster who's turn it is: ";
+    cin >> input;
 
-  cout << "Enter " << input << "'s action: ";
-  cin >> input2;
-
-  if (input2 == "Attack")
-  {
-    cout << "Enter target: ";
-    cin >> input2;
-    cout << "Enter result of dice roll: ";
-    cin >> input3;
-    cout << "Enter target's AC: ";
-    cin >> input4;
-
-    attackDamage = stoi(input3) - stoi(input4);
-
-    if (attackDamage < 1)
+    if (input != "DM")
     {
-      cout << input2 << " took no damage." << endl;
+      cout << "Enter " << input << "'s action: ";
+      cin >> input2;
+
+      if (input2 == "Attack")
+      {
+        cout << "Enter target: ";
+        cin >> input2;
+        cout << "Enter result of dice roll: ";
+        cin >> input3;
+        cout << "Enter target's AC: ";
+        cin >> input4;
+
+        attackDamage = stoi(input3) - stoi(input4);
+
+        if (attackDamage < 1)
+        {
+          cout << input2 << " took no damage." << endl;
+        }
+        else if (attackDamage > 0)
+        {
+          cout << input << " attacked " << input2 << " for " << attackDamage << " damage." << endl;
+        }
+      }
+      
     }
-    else if (attackDamage > 0)
+    else if (input == "DM")
     {
-      cout << input << " attacked " << input2 << " for " << attackDamage << "damage";
+      cout << "What would you like to change DM? ";
+
+      cin >> input2;
+
+      if (input2 == "Monster_Count")
+      {
+        cout << "Enter new monster count: ";
+        cin >> input3;
+        activeMonsters(stoi(input3));
+      }
+      if (input2 == "Change_Monster")
+      {
+        changeMonster();
+      }
+      if (input2 == "Change_Player")
+      {
+        cout << "Which player would you like to change? ";
+        cin >> input3;
+
+        switch (stoi(input3))
+        {
+          case 1: P1.changeData(); break;
+          case 2: P2.changeData(); break;
+          case 3: P3.changeData(); break;
+          case 4: P4.changeData(); break;
+          case 5: P5.changeData(); break;
+          case 6: P6.changeData(); break;
+          case 7: P7.changeData(); break;
+          case 8: P8.changeData(); break;
+          case 9: P9.changeData(); break;
+          case 10: P10.changeData(); break;
+        }
+      }
+    }
+    else
+    {
+
     }
   }
-  
 }
 
 void save()
@@ -574,7 +636,7 @@ void load()
   }
 }
 
-void initialSetup()
+void initialsetup()
 {
   cout << "How many players? 1-10 ";
   cin >> input;

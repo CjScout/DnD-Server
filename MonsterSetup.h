@@ -11,6 +11,7 @@ class Monster
     void saveStats();
     void loadStats();
     void makeDefault();
+    void getInititive();
 
     //base
     string Name;
@@ -45,6 +46,8 @@ class Monster
 
     string id;
     string id2;
+
+    int inititive;
 
     bool inUse;
 

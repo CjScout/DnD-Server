@@ -11,6 +11,13 @@ string path1;
 string path2;
 string path3;
 
+void Monster::getInititive()
+{
+  cout << "Enter Monster " << id << "'s inititive: ";
+  cin >> inititive;
+}
+
+
 void Monster::setup() 
 {
   //name

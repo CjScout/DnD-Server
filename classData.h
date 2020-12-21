@@ -12,6 +12,8 @@ class Player
     void setup();
     void saveStats();
     void loadStats();
+    void getInititive();
+    int attack();
 
     bool inUse;
     string usersName;
@@ -70,6 +72,8 @@ class Player
     // Other
     int walkingSpeed;
 
+    int inititive;
+
     string id;
     
   private:
@@ -83,6 +87,7 @@ class friendCreature
     void setup();
     void saveStats();
     void loadStats();
+    void getInititive();
 
     bool inUse;
 
@@ -118,6 +123,11 @@ class friendCreature
 
     // Other
     int walkingSpeed;
+    int flySpeed;
+    int burrowSpeed;
+    int swimSpeed;
+
+    int inititive;
 
     string id;
     

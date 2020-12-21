@@ -15,6 +15,8 @@ string input3;
 string input4;
 
 int activeMCount;
+int activePCount;
+int activeFCount;
 int attackDamage;
 int monster1;
 
@@ -97,6 +99,8 @@ Monster M48;
 Monster M49;
 Monster M50;
 
+WHEE fun1;
+
 void initialsetup();
 void save();
 void load();
@@ -104,6 +108,7 @@ void startInput();
 void nextInput();
 void combat();
 void changeMonster();
+void getInititive();
 
 
 int main() 
@@ -201,7 +206,8 @@ int main()
 
 
 
-void startInput (){
+void startInput()
+{
   cout << "Please enter Initial Command" << endl;
   cin >> input;
 
@@ -216,46 +222,6 @@ void startInput (){
     {
       cout << "setup already complete. Loading data." << endl;
       load();
-      if (P1.inUse == true)
-      {
-        cout << "Welcome " << P1.name << " .";
-      }
-      if (P2.inUse == true)
-      {
-        cout << "Welcome " << P2.name << " .";
-      }
-      if (P3.inUse == true)
-      {
-        cout << "Welcome " << P3.name << " .";
-      }
-      if (P4.inUse == true)
-      {
-        cout << "Welcome " << P4.name << " .";
-      }
-      if (P5.inUse == true)
-      {
-        cout << "Welcome " << P5.name << " .";
-      }
-      if (P6.inUse == true)
-      {
-        cout << "Welcome " << P6.name << " .";
-      }
-      if (P7.inUse == true)
-      {
-        cout << "Welcome " << P7.name << " .";
-      }
-      if (P8.inUse == true)
-      {
-        cout << "Welcome " << P8.name << " .";
-      }
-      if (P9.inUse == true)
-      {
-        cout << "Welcome " << P9.name << " .";
-      }
-      if (P10.inUse == true)
-      {
-        cout << "Welcome " << P10.name << " .";
-      }
     }
     else
     {
@@ -296,73 +262,24 @@ void nextInput()
   {
     abort();
   }
-  //really?
   else if (secondIn == "Reset_Monster") 
   {
-
+    changeMonster();
   }
   else if (secondIn == "Default_Monster")
   {
-    cout << "Which monster do you want to make default: ";
-    cin >> monster1;
-    switch(monster1) {
-      case 1:  M1.makeDefault(); M1.saveStats();  break;
-      case 2:  M2.makeDefault(); M2.saveStats();  break;
-      case 3:  M3.makeDefault(); M3.saveStats();  break;
-      case 4:  M4.makeDefault(); M4.saveStats();  break;
-      case 5:  M5.makeDefault(); M5.saveStats();  break;
-      case 6:  M6.setup(); M6.saveStats();  break;
-      case 7:  M7.setup(); M7.saveStats();  break;
-      case 8:  M8.setup(); M8.saveStats();  break;
-      case 9:  M9.setup(); M9.saveStats();  break;
-      case 10:  M10.setup(); M10.saveStats();  break;
-      case 11:  M11.setup(); M11.saveStats();  break;
-      case 12:  M12.setup(); M12.saveStats();  break;
-      case 13:  M13.setup(); M13.saveStats();  break;
-      case 14:  M14.setup(); M14.saveStats();  break;
-      case 15:  M15.setup(); M15.saveStats();  break;
-      case 16:  M16.setup(); M16.saveStats();  break;
-      case 17:  M17.setup(); M17.saveStats();  break;
-      case 18:  M18.setup(); M18.saveStats();  break;
-      case 19:  M19.setup(); M19.saveStats();  break;
-      case 20:  M20.setup(); M20.saveStats();  break;
-      case 21:  M21.setup(); M21.saveStats();  break;
-      case 22:  M22.setup(); M22.saveStats();  break;
-      case 23:  M23.setup(); M23.saveStats();  break;
-      case 24:  M24.setup(); M24.saveStats();  break;
-      case 25:  M25.setup(); M25.saveStats();  break;
-      case 26:  M26.setup(); M26.saveStats();  break;
-      case 27:  M27.setup(); M27.saveStats();  break;
-      case 28:  M28.setup(); M28.saveStats();  break;
-      case 29:  M29.setup(); M29.saveStats();  break;
-      case 30:  M30.setup(); M30.saveStats();  break;
-      case 31:  M31.setup(); M31.saveStats();  break;
-      case 32:  M32.setup(); M32.saveStats();  break;
-      case 33:  M33.setup(); M33.saveStats();  break;
-      case 34:  M34.setup(); M34.saveStats();  break;
-      case 35:  M35.setup(); M35.saveStats();  break;
-      case 36:  M36.setup(); M36.saveStats();  break;
-      case 37:  M37.setup(); M37.saveStats();  break;
-      case 38:  M38.setup(); M38.saveStats();  break;
-      case 39:  M39.setup(); M39.saveStats();  break;
-      case 40:  M40.setup(); M40.saveStats();  break;
-      case 41:  M41.setup(); M41.saveStats();  break;
-      case 42:  M42.setup(); M42.saveStats();  break;
-      case 43:  M43.setup(); M43.saveStats();  break;
-      case 44:  M44.setup(); M44.saveStats();  break;
-      case 45:  M45.setup(); M45.saveStats();  break;
-      case 46:  M46.setup(); M46.saveStats();  break;
-      case 47:  M47.setup(); M47.saveStats();  break;
-      case 48:  M48.setup(); M48.saveStats();  break;
-      case 49:  M49.setup(); M49.saveStats();  break;
-      case 50:  M50.setup(); M50.saveStats();  break;
-    }
+    cout << "Test";
+  }
+  else if (secondIn == "initiate_calculator")
+  {
+    cout << "Running..." << endl;
+    fun1.calculate();
   }
   else
   {
-    cout << "Invalid Response, Please Try Again." << endl;  }
+    cout << "Invalid Response, Please Try Again." << endl;
   }
-
+}
 
 void changeMonster()
 {
@@ -422,7 +339,10 @@ void changeMonster()
     case 50:  M50.setup(); M50.saveStats();  break;
   }
 }
+void calcRun()
+{
 
+}
 void activeMonsters(int count)
 {
   switch(count)
@@ -480,6 +400,89 @@ void activeMonsters(int count)
   }
 }
 
+void getInititive()
+{
+  switch (activeMCount)
+  {
+    case 50:    M50.getInititive();
+    case 49:  	M49.getInititive();
+    case 48:  	M48.getInititive();
+    case 47:  	M47.getInititive();
+    case 46:  	M46.getInititive();
+    case 45:  	M45.getInititive();
+    case 44:    M44.getInititive();
+    case 43:    M43.getInititive();
+    case 42:    M42.getInititive();
+    case 41:    M41.getInititive();
+    case 40:  	M40.getInititive();
+    case 39:  	M39.getInititive();
+    case 38:  	M38.getInititive();
+    case 37:  	M37.getInititive();
+    case 36:  	M36.getInititive();
+    case 35:  	M35.getInititive();
+    case 34:    M34.getInititive();
+    case 33:    M33.getInititive();
+    case 32:    M32.getInititive();
+    case 31:    M31.getInititive();
+    case 30:  	M30.getInititive();
+    case 29:  	M29.getInititive();
+    case 28:  	M28.getInititive();
+    case 27:  	M27.getInititive();
+    case 26:  	M26.getInititive();
+    case 25:  	M25.getInititive();
+    case 24:    M24.getInititive();
+    case 23:    M23.getInititive();
+    case 22:    M22.getInititive();
+    case 21:    M21.getInititive();
+    case 20:  	M20.getInititive();
+    case 19:  	M19.getInititive();
+    case 18:  	M18.getInititive();
+    case 17:  	M17.getInititive();
+    case 16:  	M16.getInititive();
+    case 15:  	M15.getInititive();
+    case 14:    M14.getInititive();
+    case 13:    M13.getInititive();
+    case 12:    M12.getInititive();
+    case 11:    M11.getInititive();
+    case 10:  	M10.getInititive();
+    case 9:  	  M9.getInititive();
+    case 8:  	  M8.getInititive();
+    case 7:  	  M7.getInititive();
+    case 6:  	  M6.getInititive();
+    case 5:  	  M5.getInititive();
+    case 4:     M4.getInititive();
+    case 3:     M3.getInititive();
+    case 2:     M2.getInititive();
+    case 1:     M1.getInititive();
+  }
+  switch (activePCount)
+  {
+    case 10: P10.getInititive();
+    case 9: P9.getInititive();
+    case 8: P8.getInititive();
+    case 7: P7.getInititive();
+    case 6: P6.getInititive();
+    case 5: P5.getInititive();
+    case 4: P4.getInititive();
+    case 3: P3.getInititive();
+    case 2: P2.getInititive();
+    case 1: P1.getInititive();
+  }
+  switch (activeFCount)
+  {
+    case 10: F10.getInititive();
+    case 9: F9.getInititive();
+    case 8: F8.getInititive();
+    case 7: F7.getInititive();
+    case 6: F6.getInititive();
+    case 5: F5.getInititive();
+    case 4: F4.getInititive();
+    case 3: F3.getInititive();
+    case 2: F2.getInititive();
+    case 1: F1.getInititive();
+  } 
+}
+
 void combat()
 {
   cout << "Commencing Combat" << endl;
@@ -487,82 +490,18 @@ void combat()
   cout << "How many monsters? ";
   cin >> input;
 
+  activeMCount = 0;
+
   activeMonsters(stoi(input));
 
-  activeMCount = 0;
+  getInititive();
 
   inCombat = true;
   while (inCombat == true)
   {
-    cout << "Enter the player/monster who's turn it is: ";
-    cin >> input;
-
-    if (input != "DM")
+    if (P1.inititive > P2.inititive && P1.inititive > P3.inititive && P1.inititive > P4.inititive && P1.inititive > P5.inititive && P1.inititive > P6.inititive && P1.inititive > P7.inititive && P1.inititive > P8.inititive && P1.inititive > P9.inititive && P1.inititive > P10.inititive  && P1.inititive > F1.inititive &&P1.inititive > F2.inititive && P1.inititive > F3.inititive && P1.inititive > F4.inititive && P1.inititive > F5.inititive && P1.inititive > F6.inititive && P1.inititive > F7.inititive && P1.inititive > F8.inititive && P1.inititive > F9.inititive && P1.inititive > F10.inititive && P1.inititive > M1.inititive && P1.inititive > M2.inititive && P1.inititive > M3.inititive && P1.inititive > M4.inititive && P1.inititive > M5.inititive && P1.inititive > M6.inititive && P1.inititive > M7.inititive && P1.inititive > M8.inititive && P1.inititive > M9.inititive && P1.inititive > M10.inititive && P1.inititive > M11.inititive &&P1.inititive > M12.inititive && P1.inititive > M13.inititive && P1.inititive > M14.inititive && P1.inititive > M15.inititive && P1.inititive > M16.inititive && P1.inititive > M17.inititive && P1.inititive > M18.inititive && P1.inititive > M19.inititive && P1.inititive > M20.inititive && M21.inititive > M22.inititive && P1.inititive > M23.inititive && P1.inititive > M24.inititive && P1.inititive > M25.inititive && P1.inititive > M26.inititive && P1.inititive > M27.inititive && P1.inititive > M28.inititive && P1.inititive > M29.inititive && P1.inititive > M30.inititive && P1.inititive > M31.inititive && P1.inititive > M32.inititive && P1.inititive > M33.inititive && P1.inititive > M34.inititive && P1.inititive > M35.inititive && P1.inititive > M36.inititive && P1.inititive > M37.inititive && P1.inititive > M38.inititive && P1.inititive > M39.inititive && P1.inititive > M40.inititive && P1.inititive > M41.inititive && P1.inititive > M42.inititive && P1.inititive > M43.inititive && P1.inititive > M44.inititive && P1.inititive > M45.inititive && P1.inititive > M46.inititive &&P1.inititive > M47.inititive && P1.inititive > M48.inititive && P1.inititive > M49.inititive && P1.inititive > M50.inititive)
     {
-      cout << "Enter " << input << "'s action: ";
-      cin >> input2;
-
-      if (input2 == "Attack")
-      {
-        cout << "Enter target: ";
-        cin >> input2;
-        cout << "Enter result of dice roll: ";
-        cin >> input3;
-        cout << "Enter target's AC: ";
-        cin >> input4;
-
-        attackDamage = stoi(input3) - stoi(input4);
-
-        if (attackDamage < 1)
-        {
-          cout << input2 << " took no damage." << endl;
-        }
-        else if (attackDamage > 0)
-        {
-          cout << input << " attacked " << input2 << " for " << attackDamage << " damage." << endl;
-        }
-      }
-      
-    }
-    else if (input == "DM")
-    {
-      cout << "What would you like to change DM? ";
-
-      cin >> input2;
-
-      if (input2 == "Monster_Count")
-      {
-        cout << "Enter new monster count: ";
-        cin >> input3;
-        activeMonsters(stoi(input3));
-      }
-      if (input2 == "Change_Monster")
-      {
-        changeMonster();
-      }
-      if (input2 == "Change_Player")
-      {
-        cout << "Which player would you like to change? ";
-        cin >> input3;
-
-        switch (stoi(input3))
-        {
-          case 1: P1.changeData(); break;
-          case 2: P2.changeData(); break;
-          case 3: P3.changeData(); break;
-          case 4: P4.changeData(); break;
-          case 5: P5.changeData(); break;
-          case 6: P6.changeData(); break;
-          case 7: P7.changeData(); break;
-          case 8: P8.changeData(); break;
-          case 9: P9.changeData(); break;
-          case 10: P10.changeData(); break;
-        }
-      }
-    }
-    else
-    {
-
+      cout << "Ree";
     }
   }
 }
@@ -597,6 +536,7 @@ void load()
   if (P1.inUse == true)
   {
     cout << "Welcome " << P1.name << " .";
+
   }
   if (P2.inUse == true)
   {
@@ -740,7 +680,6 @@ void initialsetup()
   {
     P10.inUse = false;
   }
-
   fileStream.open("setup.txt");
   fileStream << "true";
   fileStream.close();

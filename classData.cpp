@@ -6,6 +6,7 @@ fstream file;
 string newValue;
 string stat;
 string path;
+int result;
 
 void Player::setup()
 {
@@ -73,6 +74,20 @@ void Player::setup()
   // Other
   cout << "Enter walking speed" << endl;
   cin >> walkingSpeed;
+}
+
+void Player::getInititive()
+{
+  cout << "Enter Player " << id << "'s inititive: ";
+  cin >> inititive;
+}
+
+int Player::attack()
+{
+  cout << "Enter target";
+  cin >> newValue;
+  result = stoi(newValue);
+  return result;
 }
 
 void Player::changeData()
@@ -253,4 +268,10 @@ void Player::loadStats()
     file >> proficientSurvival;
     file >> walkingSpeed;
     file.close();
+}
+
+void friendCreature::getInititive() 
+{
+  cout << "Enter Friendly Creature " << id << "'s inititive: ";
+  cin >> inititive;
 }
